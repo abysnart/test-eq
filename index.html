@@ -317,12 +317,29 @@
     <div class="container">
       <h1>TRẮC NGHIỆM NĂNG LỰC CẢM XÚC XÃ HỘI (EQ)</h1>
       <h3>Các em học sinh thân mến,</h3>
-      <p>Em hãy cùng tham gia một khảo sát để tìm hiểu về <strong>Năng lực cảm xúc xã hội (EQ)</strong> của mình nhé. Với kết quả khảo sát này sẽ giúp em <trong>biết được điểm mạnh và những vấn đề cần cải thiện</trong>, từ đó có thể giúp các em học tập tốt hơn và cảm thấy thoải mái hơn trong cuộc sống.</p>
-      <p>Bài trắc nghiệm rất đơn giản, em chỉ cần trả lời trung thực các mệnh đề theo cảm nhận của mình. <strong>Không có câu trả lời đúng hay sai</strong>, quan trọng là em trả lời đúng với cảm xúc và suy nghĩ của mình.</p>
-      <p>Mọi câu trả lời của em sẽ <trong>được giữ bí mật</trong> và chỉ được dùng để giúp em phát triển. Hãy trả lợi thật lòng, kết quả sẽ giúp thầy cô tìm ra cách hỗ trợ tốt nhất cho em, cả trong học tập và cuộc sống!</p>
-      
+      <p>
+        Em hãy cùng tham gia một khảo sát để tìm hiểu về
+        <strong>Năng lực cảm xúc xã hội (EQ)</strong> của mình nhé. Với kết quả
+        khảo sát này sẽ giúp em
+        <trong>biết được điểm mạnh và những vấn đề cần cải thiện</trong>, từ đó
+        có thể giúp các em học tập tốt hơn và cảm thấy thoải mái hơn trong cuộc
+        sống.
+      </p>
+      <p>
+        Bài trắc nghiệm rất đơn giản, em chỉ cần trả lời trung thực các mệnh đề
+        theo cảm nhận của mình.
+        <strong>Không có câu trả lời đúng hay sai</strong>, quan trọng là em trả
+        lời đúng với cảm xúc và suy nghĩ của mình.
+      </p>
+      <p>
+        Mọi câu trả lời của em sẽ <trong>được giữ bí mật</trong> và chỉ được
+        dùng để giúp em phát triển. Hãy trả lợi thật lòng, kết quả sẽ giúp thầy
+        cô tìm ra cách hỗ trợ tốt nhất cho em, cả trong học tập và cuộc sống!
+      </p>
+
       <div class="error-message" id="errorMessage">
-        Để được kết quả chính xác, em hãy <strong>hoàn thành tất cả các Mệnh đề</strong> nhé! Cảm ơn em!
+        Để được kết quả chính xác, em hãy
+        <strong>hoàn thành tất cả các Mệnh đề</strong> nhé! Cảm ơn em!
       </div>
       <h3>Thông tin chung</h3>
       <div class="personal-info">
@@ -352,7 +369,10 @@
         </div>
       </div>
       <h3>Phần trắc nghiệm</h3>
-      <p>Tương ứng với các mệnh đề, em hãy chọn các <strong>mức độ phù hợp</strong> với em nhất.</p>
+      <p>
+        Tương ứng với các mệnh đề, em hãy chọn các
+        <strong>mức độ phù hợp</strong> với em nhất.
+      </p>
       <table class="questionnaire">
         <thead>
           <tr>
@@ -2560,7 +2580,10 @@
         <div class="modal">
           <button class="close-btn" onclick="closeModal()">×</button>
           <div class="modal-header">
-            <div class="modal-title">Chúc mừng em đã hoàn thành trắc nghiệm Năng lực cảm xúc xã hội (EQ)</div>
+            <div class="modal-title">
+              Chúc mừng em đã hoàn thành trắc nghiệm Năng lực cảm xúc xã hội
+              (EQ)
+            </div>
             <p>Chỉ số EQ của em là:</p>
             <div class="score" id="eqScore"></div>
           </div>
@@ -2585,13 +2608,88 @@
       });
 
       function calculateEQ() {
-        let total = 0;
+        const typeMap = [
+          ["q7", "q17", "q28", "q31", "q43", "q53"],
+          [
+            "q2",
+            "q5",
+            "q10",
+            "q14",
+            "q20",
+            "q24",
+            "q36",
+            "q41",
+            "q45",
+            "q51",
+            "q55",
+            "q59",
+          ],
+          [
+            "q12",
+            "q16",
+            "q22",
+            "q25",
+            "q30",
+            "q34",
+            "q38",
+            "q44",
+            "q48",
+            "q57",
+          ],
+          [
+            "q3",
+            "q6",
+            "q11",
+            "q15",
+            "q21",
+            "q26",
+            "q35",
+            "q39",
+            "q46",
+            "q49",
+            "q54",
+            "q58",
+          ],
+          [
+            "q1",
+            "q4",
+            "q9",
+            "q13",
+            "q19",
+            "q23",
+            "q29",
+            "q32",
+            "q37",
+            "q40",
+            "q47",
+            "q50",
+            "q56",
+            "q60",
+          ],
+          ["q8", "q18", "q27", "q33", "q42", "q52"],
+        ];
+        const totalMap = {
+          1: 0,
+          2: 0,
+          3: 0,
+          4: 0,
+          5: 0,
+          6: 0,
+        };
         document
           .querySelectorAll(".custom-checkbox:checked")
           .forEach((checkbox) => {
-            total += parseInt(checkbox.value);
+            const type =
+              (typeMap.findIndex((arr) => arr.includes(checkbox.name)) || 0) +
+              1;
+            totalMap[type] += parseInt(checkbox.value);
           });
-        return total;
+        return (
+          Object.keys(totalMap).reduce((total, i) => {
+            total += Math.floor(totalMap[i] / typeMap[i - 1].length);
+            return total;
+          }, 0) * 5
+        );
       }
 
       function showResult() {
@@ -2610,8 +2708,7 @@
         scoreElement.textContent = score;
 
         if (score >= 130) {
-          messageElement.textContent =
-            `Xin chúc mừng em đã có chỉ số EQ ở mức cao rõ rệt (Năng lực xã hội và cảm xúc phát triển tốt một cách đặc biệt).
+          messageElement.textContent = `Xin chúc mừng em đã có chỉ số EQ ở mức cao rõ rệt (Năng lực xã hội và cảm xúc phát triển tốt một cách đặc biệt).
             Em là một số ít người có chỉ số cao như vậy.
             Em là người có thể nhận dạng và thể hiện cảm xúc, có cái nhìn tích cực đối với bản thân, và có thể hiện thực hóa khả năng để dẫn đến một cuộc sống hạnh phúc.
             Em có thể hiểu cảm nhận của người khác và có khả năng tạo dựng và duy trì các mối quan hệ với mọi người xung quanh.
@@ -2629,8 +2726,7 @@
             <li>Cân bằng giữa học tập với vui chơi, giải trí, luyện tập TTDT, và có chế độ dinh dưỡng phù hợp</li>
           `;
         } else if (score >= 120) {
-          messageElement.textContent =
-            `Xin chúc mừng Em đã có chỉ số EQ ở mức rất cao (Năng lực xã hội và cảm xúc phát triển rất tốt).
+          messageElement.textContent = `Xin chúc mừng Em đã có chỉ số EQ ở mức rất cao (Năng lực xã hội và cảm xúc phát triển rất tốt).
             Em thuộc nhóm ít người có chỉ số cao như vậy.
             Em là người hiểu và gọi tên được cảm xúc của bản thân, hiểu cảm giác của mình trong từng hoàn cảnh khác nhau; Em còn có khả năng đồng cảm và hiểu được cảm xúc của người khác.
             Bên cạnh đó, khả năng ứng phó với stress và kiểm soát sự tức giận của em là khá tốt.
@@ -2644,9 +2740,8 @@
             <li>Hãy tiếp tục vượt qua vùng an toàn của bản thân để thực hành các kỹ năng thiết lập mục tiêu, lập kế hoạch, giải quyết mâu thuẫn, ra quyết định, thương lượng …</li>
             <li>Cân bằng giữa học tập với vui chơi, giải trí, luyện tập TTDT, và có chế độ dinh dưỡng phù hợp</li>
           `;
-          } else if (score >= 110) {
-          messageElement.textContent =
-            `Xin chúc mừng Em đã có chỉ số EQ ở mức cao (Năng lực xã hội và cảm xúc phát triển tốt).
+        } else if (score >= 110) {
+          messageElement.textContent = `Xin chúc mừng Em đã có chỉ số EQ ở mức cao (Năng lực xã hội và cảm xúc phát triển tốt).
             Em thuộc nhóm ít người có chỉ số cao như vậy.
             Em là người hiểu và gọi tên được cảm xúc của bản thân, hiểu cảm giác của mình trong từng hoàn cảnh khác nhau; Em còn có khả năng đồng cảm và hiểu được cảm xúc của người khác.
             Bên cạnh đó, khả năng ứng phó với stress và kiểm soát sự tức giận của em là khá tốt.
@@ -2660,9 +2755,8 @@
             <li>Hãy tiếp tục vượt qua vùng an toàn của bản thân để thực hành các kỹ năng thiết lập mục tiêu, lập kế hoạch, giải quyết mâu thuẫn, ra quyết định, thương lượng …</li>
             <li>Cân bằng giữa học tập với vui chơi, giải trí, luyện tập TTDT, và có chế độ dinh dưỡng phù hợp</li>
           `;
-          } else if (score >= 90) {
-          messageElement.textContent =
-            `Xin chúc mừng em đã có chỉ số EQ ở mức trung bình (Năng lực xã hội và cảm xúc phát triển bình thường, thích hợp).
+        } else if (score >= 90) {
+          messageElement.textContent = `Xin chúc mừng em đã có chỉ số EQ ở mức trung bình (Năng lực xã hội và cảm xúc phát triển bình thường, thích hợp).
             Đây là chỉ số phổ biến ở nhiều người.
             Em có thể hiểu cảm xúc, suy nghĩ của bản thân. Tuy nhiên đôi khi em không rõ cảm giác của mình, thiếu sự thấu hiểu và đồng cảm với người khác nên có thể chưa giải quyết tốt các xung đột trong các mối quan hệ.
             Em có thể hiểu về những sự thay đổi của môi trường và cố gắng thích ứng với sự thay đổi đó.
@@ -2676,9 +2770,8 @@
             <li>Hãy chủ động tương tác để thích nghi với những sự thay đổi của môi trường xã hội thông qua luyện kỹ năng giao tiếp, hợp tác, thương lượng, giải quyết mâu thuẫn và ra quyết định có trách nhiệm</li>
             <li>Hãy cân bằng giữa học tập, công việc, với nghỉ ngơi thư giãn, vận động và luyện tập</li>
           `;
-          } else if (score >= 80) {
-          messageElement.textContent =
-            `Em đã có chỉ số EQ ở mức thấp (Năng lực xã hội và cảm xúc phát triển dưới ngưỡng, cần cải thiện một số điểm).
+        } else if (score >= 80) {
+          messageElement.textContent = `Em đã có chỉ số EQ ở mức thấp (Năng lực xã hội và cảm xúc phát triển dưới ngưỡng, cần cải thiện một số điểm).
             Khả năng nhận diện cảm xúc của bản thân và người khác của bạn cần cải thiện hơn nữa.
             Đôi khi em không rõ cảm giác của mình, chưa thực sự thấu hiểu và đồng cảm với người khác nên có thể chưa giải quyết tốt các xung đột trong các mối quan hệ.
             Em gặp khó khăn trong việc ứng phó với stress và kiểm soát cảm xúc. Khi thay đổi môi trường học tập, môi trường sống bạn cần có sự hỗ trợ để thích nghi.`;
@@ -2693,9 +2786,8 @@
             <li>Hãy tìm đến những người, những địa chỉ tin tưởng để được tư vấn, hỗ trợ</li>
             <li>Em có thể tham gia một số khóa học về giáo dục cảm xúc xã hội</li>
           `;
-          } else if (score >= 70) {
-          messageElement.textContent =
-            `Em đã có chỉ số EQ ở mức rất thấp (Năng lực xã hội và cảm xúc phát triển quá thấp, cần cải thiện nhiều điểm - một cách cẩn trọng).
+        } else if (score >= 70) {
+          messageElement.textContent = `Em đã có chỉ số EQ ở mức rất thấp (Năng lực xã hội và cảm xúc phát triển quá thấp, cần cải thiện nhiều điểm - một cách cẩn trọng).
             Khả năng nhận diện cảm xúc của bản thân và hiểu, nhận diện cảm xúc người khác của em cần cải thiện nhiều hơn nữa.
             Em khó khăn trong đánh giá về bản thân mình, khả năng suy nghĩ độc lập của em còn hạn chế.
             Em khó khăn trong kiểm soát suy nghĩ, hành động của bản thân.
@@ -2713,8 +2805,7 @@
             <li>Em có thể tham gia một số khóa học về giáo dục cảm xúc xã hội</li>
           `;
         } else {
-          messageElement.textContent =
-            `Em đã có chỉ số EQ ở mức thấp rõ rệt (Năng lực xã hội và cảm xúc không thích hợp một cách đặc biệt - vô cảm).
+          messageElement.textContent = `Em đã có chỉ số EQ ở mức thấp rõ rệt (Năng lực xã hội và cảm xúc không thích hợp một cách đặc biệt - vô cảm).
             Khả năng nhận diện cảm xúc của bản thân và hiểu, nhận diện cảm xúc người khác của em cần cải thiện rất nhiều.
             Em rất khó khăn trong đánh giá về bản thân mình, khả năng suy nghĩ độc lập của em còn hạn chế.
             Em khó khăn trong kiểm soát suy nghĩ, hành động của bản thân. Đôi khi em chưa đồng cảm, hiểu và nhận thức đúng cảm xúc của người khác.
