@@ -2554,7 +2554,7 @@
         </tbody>
       </table>
 
-      <button class="submit-btn">Gửi câu trả lời</button>
+      <button class="submit-btn">Hoàn thành Trắc nghiệm</button>
 
       <div class="modal-overlay" id="resultModal">
         <div class="modal">
@@ -2609,25 +2609,89 @@
 
         scoreElement.textContent = score;
 
-        if (score >= 110) {
+        if (score >= 130) {
           messageElement.textContent =
-            "Chỉ số EQ của bạn ở mức rất cao và cao rõ rệt. Bạn là một số ít người có chỉ số cao như vậy.";
+            "Xin chúc mừng em đã có chỉ số EQ ở mức cao rõ rệt (Năng lực xã hội và cảm xúc phát triển tốt một cách đặc biệt).
+            Em là một số ít người có chỉ số cao như vậy.
+            Em là người có thể nhận dạng và thể hiện cảm xúc, có cái nhìn tích cực đối với bản thân, và có thể hiện thực hóa khả năng để dẫn đến một cuộc sống hạnh phúc.
+            Em có thể hiểu cảm nhận của người khác và có khả năng tạo dựng và duy trì các mối quan hệ với mọi người xung quanh.
+            Em cũng là người lạc quan, linh động, thực tế và thành công trong việc giải quyết vấn đề, ứng phó với stress, không bị mất kiểm soát
+            Em có khả năng kiểm soát tốt và thích ứng rất tốt với sự thay đổi của môi trường xung quanh.
+            Cá nhân có khả năng linh hoạt trong đánh giá cảm xúc, suy nghĩ và hành vi của mình trước những thay đổi của tình huống.
+            Năng lực nhận diện vấn đề, huy động tiềm năng để có những giải pháp hiệu quả để giải quyết vấn đề của em rất tốt.";
           recommendationsListTitle.textContent =
-            "Các kỹ năng của bạn đã làm tốt và cần thực hành thường xuyên:";
+            "Em hãy tiếp tục phát huy và rèn luyện năng lực cảm xúc xã hội thông qua thực hành các hoạt động như sau nhé:";
           recommendationsList.innerHTML = `
             <li>Tăng cường nhận diện và thấu hiểu bản thân</li>
-            <li>Tiếp tục phát huy và rèn luyện các kỹ năng xã hội và cảm xúc</li>
-            <li>Chia sẻ kinh nghiệm và hỗ trợ người khác phát triển EQ</li>
+            <li>Hiểu về cảm xúc của mình và thấu hiểu cảm xúc, suy nghĩ của mình</li>
+            <li>Chủ động tương tác với mọi người xung quanh để thực hành kỹ năng lắng nghe, thấu hiểu, giao tiếp chủ động …</li>
+            <li>Hãy tiếp tục vượt qua vùng an toàn của bản thân để thực hành các kỹ năng thiết lập mục tiêu, lập kế hoạch, giải quyết mâu thuẫn, ra quyết định, thương lượng …</li>
+            <li>Cân bằng giữa học tập với vui chơi, giải trí, luyện tập TTDT, và có chế độ dinh dưỡng phù hợp</li>
           `;
-        } else if (score >= 90) {
+        } else if (score >= 120) {
           messageElement.textContent =
-            "Chỉ số EQ của bạn ở mức trung bình (chiểm tỷ lệ khá nhiều).";
+            "Xin chúc mừng Em đã có chỉ số EQ ở mức rất cao (Năng lực xã hội và cảm xúc phát triển rất tốt).
+            Em thuộc nhóm ít người có chỉ số cao như vậy.
+            Em là người hiểu và gọi tên được cảm xúc của bản thân, hiểu cảm giác của mình trong từng hoàn cảnh khác nhau; Em còn có khả năng đồng cảm và hiểu được cảm xúc của người khác.
+            Bên cạnh đó, khả năng ứng phó với stress và kiểm soát sự tức giận của em là khá tốt.
+            Em cũng có khả năng thích ứng với những sự thay đổi.";
           recommendationsListTitle.textContent =
-            "Hãy tiếp tục rèn luyện để đạt đến sự thành công và hạnh phúc trong cuộc sống:";
+            "Em hãy tiếp tục phát huy và rèn luyện năng lực cảm xúc xã hội thông qua thực hành các hoạt động như sau nhé:";
           recommendationsList.innerHTML = `
-            <li>Tăng cường khả năng nhận diện bản thân</li>
-            <li>Rèn luyện kỹ năng lắng nghe và thấu hiểu</li>
-            <li>Cân bằng giữa học tập, công việc với nghỉ ngơi</li>
+            <li>Tăng cường nhận diện và thấu hiểu bản thân</li>
+            <li>Hiểu về cảm xúc của mình và thấu hiểu cảm xúc, suy nghĩ của mình</li>
+            <li>Chủ động tương tác với mọi người xung quanh để thực hành kỹ năng lắng nghe, thấu hiểu, giao tiếp chủ động …</li>
+            <li>Hãy tiếp tục vượt qua vùng an toàn của bản thân để thực hành các kỹ năng thiết lập mục tiêu, lập kế hoạch, giải quyết mâu thuẫn, ra quyết định, thương lượng …</li>
+            <li>Cân bằng giữa học tập với vui chơi, giải trí, luyện tập TTDT, và có chế độ dinh dưỡng phù hợp</li>
+          `;
+          } else if (score >= 110) {
+          messageElement.textContent =
+            "Xin chúc mừng Em đã có chỉ số EQ ở mức cao (Năng lực xã hội và cảm xúc phát triển tốt).
+            Em thuộc nhóm ít người có chỉ số cao như vậy.
+            Em là người hiểu và gọi tên được cảm xúc của bản thân, hiểu cảm giác của mình trong từng hoàn cảnh khác nhau; Em còn có khả năng đồng cảm và hiểu được cảm xúc của người khác.
+            Bên cạnh đó, khả năng ứng phó với stress và kiểm soát sự tức giận của em là khá tốt.
+            Em cũng có khả năng thích ứng với những sự thay đổi.";
+          recommendationsListTitle.textContent =
+            "Em hãy tiếp tục phát huy và rèn luyện năng lực cảm xúc xã hội thông qua thực hành các hoạt động như sau nhé:";
+          recommendationsList.innerHTML = `
+            <li>Tăng cường nhận diện và thấu hiểu bản thân</li>
+            <li>Hiểu về cảm xúc của mình và thấu hiểu cảm xúc, suy nghĩ của mình</li>
+            <li>Chủ động tương tác với mọi người xung quanh để thực hành kỹ năng lắng nghe, thấu hiểu, giao tiếp chủ động …</li>
+            <li>Hãy tiếp tục vượt qua vùng an toàn của bản thân để thực hành các kỹ năng thiết lập mục tiêu, lập kế hoạch, giải quyết mâu thuẫn, ra quyết định, thương lượng …</li>
+            <li>Cân bằng giữa học tập với vui chơi, giải trí, luyện tập TTDT, và có chế độ dinh dưỡng phù hợp</li>
+          `;
+          } else if (score >= 90) {
+          messageElement.textContent =
+            "Xin chúc mừng em đã có chỉ số EQ ở mức trung bình (Năng lực xã hội và cảm xúc phát triển bình thường, thích hợp).
+            Đây là chỉ số phổ biến ở nhiều người.
+            Em có thể hiểu cảm xúc, suy nghĩ của bản thân. Tuy nhiên đôi khi em không rõ cảm giác của mình, thiếu sự thấu hiểu và đồng cảm với người khác nên có thể chưa giải quyết tốt các xung đột trong các mối quan hệ.
+            Em có thể hiểu về những sự thay đổi của môi trường và cố gắng thích ứng với sự thay đổi đó.
+            Khả năng ứng phó với stress và kiểm soát cảm xúc của em là khá.";
+          recommendationsListTitle.textContent =
+            "Để đạt đến sự thành công và hạnh phúc trong cuộc sống, em cần cải thiện kỹ năng xã hội và cảm xúc của mình tích cực và thường xuyên hơn nữa:";
+          recommendationsList.innerHTML = `
+            <li>Tăng cường khả năng nhận diện bản thân, em hãy tìm điểm mạnh và điểm cần cải thiện của mình</li>
+            <li>Tăng cường các kỹ năng làm chủ bản thân, như: kỹ năng quản lý thời gian, xác định mục tiêu cho bản thân và có kế hoạch. Đặc biệt là làm chủ cảm xúc, quản lý căng thẳng.</li>
+            <li>Em cần rèn luyện về sự lắng nghe, thấu hiểu và đồng cảm với những người xung quanh.</li>
+            <li>Hãy chủ động tương tác để thích nghi với những sự thay đổi của môi trường xã hội thông qua luyện kỹ năng giao tiếp, hợp tác, thương lượng, giải quyết mâu thuẫn và ra quyết định có trách nhiệm.</li>
+            <li>Hãy cân bằng giữa học tập, công việc, với nghỉ ngơi thư giãn, vận động và luyện tập.</li>
+          `;
+          } else if (score >= 80) {
+          messageElement.textContent =
+            "Xin chúc mừng em đã có chỉ số EQ ở mức thấp (Năng lực xã hội và cảm xúc phát triển dưới ngưỡng, cần cải thiện một số điểm).
+            Khả năng nhận diện cảm xúc của bản thân và người khác của bạn cần cải thiện hơn nữa.
+            Em khi bạn không rõ cảm giác của mình, chưa thực sự thấu hiểu và đồng cảm với người khác nên có thể chưa giải quyết tốt các xung đột trong các mối quan hệ.
+            Em gặp khó khăn trong việc ứng phó với stress và kiểm soát cảm xúc. Khi thay đổi môi trường học tập, môi trường sống bạn cần có sự hỗ trợ để thích nghi.";
+          recommendationsListTitle.textContent =
+            "Để đạt đến sự thành công và hạnh phúc trong cuộc sống, em cần cải thiện kỹ năng xã hội và cảm xúc của mình tích cực và thường xuyên hơn nữa:";
+          recommendationsList.innerHTML = `
+            <li>Tăng cường khả năng nhận diện bản thân, em hãy tìm điểm mạnh và điểm cần cải thiện của mình</li>
+            <li>Tăng cường các kỹ năng làm chủ bản thân, như: kỹ năng quản lý thời gian, xác định mục tiêu cho bản thân và có kế hoạch. Đặc biệt là làm chủ cảm xúc, quản lý căng thẳng.</li>
+            <li>Em cần rèn luyện về sự lắng nghe, thấu hiểu và đồng cảm với những người xung quanh.</li>
+            <li>Hãy chủ động tương tác để thích nghi với những sự thay đổi của môi trường xã hội thông qua luyện kỹ năng giao tiếp, hợp tác, thương lượng, giải quyết mâu thuẫn và ra quyết định có trách nhiệm.</li>
+            <li>Hãy cân bằng giữa học tập, công việc, với nghỉ ngơi thư giãn, vận động và luyện tập thể dục thể thao cũng như có chế độ dinh dưỡng phù hợp.</li>
+            <li>Hãy tìm đến những người, những địa chỉ tin tưởng để được tư vấn, hỗ trợ.</li>
+            <li>Em có thể tham gia một số khóa học về giáo dục cảm xúc xã hội.</li>
           `;
         } else {
           messageElement.textContent = "";
@@ -2731,7 +2795,7 @@
 
         if (!personalInfoValid) {
           const errorMessage = document.getElementById("errorMessage");
-          errorMessage.textContent = "Vui lòng điền đầy đủ thông tin cá nhân.";
+          errorMessage.textContent = "Em hãy điền đầy đủ thông tin cá nhân.";
           errorMessage.classList.add("show");
           return false;
         }
