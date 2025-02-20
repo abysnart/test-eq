@@ -2687,7 +2687,7 @@
             totalMap[type] += parseInt(checkbox.value);
           });
         return (
-          Object.keys(totalMap).reduce((total, i) => {
+          [1,2,3,4].reduce((total, i) => {
             total += Math.floor(totalMap[i] / typeMap[i - 1].length);
             return total;
           }, 0) * 5
