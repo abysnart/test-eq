@@ -2969,10 +2969,7 @@
         });
 
         // Calculate total score
-        const totalScore = responses.reduce(
-          (sum, response) => sum + response.answer,
-          0
-        );
+        const totalScore = calculateEQ();
 
         // Prepare data for API
         const formData = {
